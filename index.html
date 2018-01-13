@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Kosman - Manajemen Kos</title>
+  <link rel="stylesheet" href="assets/css/semantic.css">
+  <link rel="stylesheet" href="assets/css/message.css">
+  <script src="assets/js/jquery-3.2.1.min.js"></script>
+  <script src="assets/js/semantic.min.js"></script>
+  <script src="assets/js/form.js"></script>
+  <style type="text/css">
+    body {
+      background-image: url("assets/images/bg3.jpg");
+      background-color: #DADADA;
+      background-repeat: no-repeat;
+      background-size: 100%;
+    }
+    body > .grid {
+      height: 100%;
+    }
+    .column {
+      max-width: 800px;
+    }
+  </style>
+  <script>
+    $(document).ready(function() {
+      $('.form-layout').load('login.form.html')
+    });
+  </script>
+</head>
+<body>
+  <div class="ui middle aligned centered grid">
+    <div class="column">
+      <div class="ui stacked segment">
+        <h2 class="ui image header">
+          <img src="assets/images/K.png" class="image">
+          <div class="content">
+            Kosman - Manajemen Kos
+          </div>
+        </h2>
+        <div class="ui stakcable padded divided grid">
+          <div class="ten wide column">
+            <h3 class="ui header">Kosman adalah sistem manajemen bisnis kos kamu.</h3>
+            <p>Kosman membantu bisnis kos kamu jadi lebih simpel. Tidak perlu takut pengekos tidak membayar, kami akan selalu mengingatkan pengekos melalui sms, email dan push notification.</p>
+            <p>Kosman juga tersedia di Play Store.</p>
+            <img src="assets/images/google-play-badge.png" class="ui small image">
+          </div>
+          <div class="six wide column form-layout"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

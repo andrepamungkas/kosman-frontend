@@ -1,0 +1,74 @@
+<h3 class="ui header">Tambah Bangunan</h3>
+<form class="ui form">
+  <div class="ui error small message"></div>
+  <div class="field">
+    <div class="ui left icon input">
+      <i class="tag icon"></i>
+      <input type="text" name="name" placeholder="Nama Bangunan">
+    </div>
+  </div>
+  <div class="field">
+    <div class="ui left icon input">
+      <i class="pin icon"></i>
+      <input type="text" name="address" placeholder="Alamat Bangunan">
+    </div>
+  </div>
+  <div class="field">
+    <div class="ui left icon input">
+      <i class="cubes icon"></i>
+      <input type="text" name="totalroom" placeholder="Jumlah Kamar">
+    </div>
+  </div>
+  <div class="field">
+    <div class="ui left icon input">
+      <i class="wait icon"></i>
+      <input type="text" name="period" placeholder="Periode pembayaran">
+    </div>
+  </div>
+  <div class="ui large teal submit button">Tambah</div>
+  <div class="ui large cancel button">Batal</div>
+</form>
+
+<script>
+  $('.ui.form').form({
+    fields: {
+      name: {
+        identifier  : 'name',
+        rules: [
+          {
+            type   : 'empty',
+            prompt : 'Nama bangunan tidak boleh kosong'
+          }
+        ]
+      },
+      totalroom: {
+        identifier  : 'totalroom',
+        rules: [
+          {
+            type   : 'integer',
+            prompt : 'Jumlah kamar tidak valid'
+          }
+        ]
+      },
+      period: {
+        identifier  : 'period',
+        rules: [
+          {
+            type   : 'empty',
+            prompt : 'Periode pembayaran tidak boleh kosong'
+          },
+          {
+            type   : 'integer',
+            prompt : 'Periode pembayaran tidak valid'
+          }
+        ]
+      }
+    }
+  });
+
+  $(document).ready(function() {
+    $('.cancel').click(function() {
+      $('#main').load('building.content.html')
+    });
+  });
+</script>

@@ -1,0 +1,50 @@
+{
+  "id": 1,
+  "name": "Kos Nakula",
+  "numOfFacility": 5,
+  "numOfMember": 4,
+  "facilities": [
+    {
+      "name": "Tempat tidur",
+      "price": 0
+    },
+    {
+      "name": "Meja & kursi belajar",
+      "price": 0
+    },
+    {
+      "name": "Almari",
+      "price": 0
+    },
+    {
+      "name": "Kompor listrik",
+      "price": 100000
+    },
+    {
+      "name": "Internet",
+      "price": 75000
+    }
+  ],
+  "members": [
+    {
+      "name": "Kevin Sukma",
+      "phone": "088263746527",
+      "bill": 750000
+    },
+    {
+      "name": "Indra Sukma",
+      "phone": "08953445678",
+      "bill": 650000
+    },
+    {
+      "name": "Riki Ardian",
+      "phone": "082649999172",
+      "bill": 1000000
+    },
+    {
+      "name": "Ahmad Yulis",
+      "phone": "08867544567",
+      "bill": 1075000
+    }
+  ]
+}

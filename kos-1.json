@@ -1,0 +1,49 @@
+{
+  "id": 1,
+  "name": "Kos Nakula",
+  "numOfFacility": 6,
+  "numOfMember": 3,
+  "facilities": [
+    {
+      "name": "Tempat tidur",
+      "price": 0
+    },
+    {
+      "name": "Meja & kursi belajar",
+      "price": 0
+    },
+    {
+      "name": "Almari",
+      "price": 0
+    },
+    {
+      "name": "Kamar mandi luar",
+      "price": 0
+    },
+    {
+      "name": "Internet",
+      "price": 50000
+    },
+    {
+      "name": "Cuci baju",
+      "price": 50000
+    }
+  ],
+  "members": [
+    {
+      "name": "Andre Pamungkas",
+      "phone": "081274827493",
+      "bill": 500000
+    },
+    {
+      "name": "Indra Sukma",
+      "phone": "081222422521",
+      "bill": 550000
+    },
+    {
+      "name": "Farid Akbar",
+      "phone": "0839287479820",
+      "bill": 600000
+    }
+  ]
+}

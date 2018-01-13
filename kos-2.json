@@ -1,0 +1,74 @@
+{
+  "id": 1,
+  "name": "Kos Nakula",
+  "numOfFacility": 6,
+  "numOfMember": 8,
+  "facilities": [
+    {
+      "name": "Tempat tidur",
+      "price": 0
+    },
+    {
+      "name": "Meja & kursi belajar",
+      "price": 0
+    },
+    {
+      "name": "Almari",
+      "price": 0
+    },
+    {
+      "name": "Kamar mandi dalam",
+      "price": 200000
+    },
+    {
+      "name": "Internet",
+      "price": 75000
+    },
+    {
+      "name": "Makan 3x sehari",
+      "price": 500000
+    }
+  ],
+  "members": [
+    {
+      "name": "Riki Ardian",
+      "phone": "082649999172",
+      "bill": 1000000
+    },
+    {
+      "name": "Ahmad Yulis",
+      "phone": "08867544567",
+      "bill": 1075000
+    },
+    {
+      "name": "Indra Sukma",
+      "phone": "08953445678",
+      "bill": 650000
+    },
+    {
+      "name": "Hendi Tria",
+      "phone": "0839287479820",
+      "bill": 750000
+    },
+    {
+      "name": "Kevin Sukma",
+      "phone": "088263746527",
+      "bill": 750000
+    },
+    {
+      "name": "Ahmad Hanafi",
+      "phone": "082223920937",
+      "bill": 1000000
+    },
+    {
+      "name": "Yudi Akbar",
+      "phone": "081374892849",
+      "bill": 1000000
+    },
+    {
+      "name": "Gilang Atma",
+      "phone": "081237583762",
+      "bill": 1000000
+    }
+  ]
+}

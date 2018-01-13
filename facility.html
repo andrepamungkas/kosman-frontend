@@ -1,0 +1,33 @@
+<div id="facilities" class="ui vertical fluid menu">
+  <a v-for="facility in facilities" class="item">
+    <h4 class="ui header">{{ facility.name }}</h4>
+    <p v-if="facility.price">Rp{{ facility.price }}</p>
+    <p v-else>Gratis</p>
+  </a>
+</div>
+
+<script>
+  $(document).ready(function() {
+    function getQueryStringParams(sParam) {
+      var sPageURL = window.location.search.substring(1);
+      var sURLVariables = sPageURL.split('&');
+      for (var i = 0; i < sURLVariables.length; i++) {
+        var sParameterName = sURLVariables[i].split('=');
+        if (sParameterName[0] == sParam) {
+          return sParameterName[1];
+        }
+      }
+    }
+
+    var buildingId = getQueryStringParams('building');
+    if (!buildingId) buildingId = 1;
+    $.getJSON('kos-' + buildingId + '.json', function(result) {
+      var facility = new Vue({
+        el: '#facilities',
+        data: {
+          facilities: result.facilities
+      }
+    })
+  })
+  });
+</script>

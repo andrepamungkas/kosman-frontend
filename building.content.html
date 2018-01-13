@@ -1,0 +1,56 @@
+
+<div class="ui icon message">
+  <i class="close icon"></i>
+  <i class="idea icon"></i>
+  <div class="content">
+    <div class="header">Tips</div>
+    <p>Klik salah satu bangunan di sisi kiri untuk melihat detail bangunan.<br>Klik tambah untuk menambah bangunan.</p>
+  </div>
+</div>
+<div id="tab" class="ui fluid two tiny item menu">
+  <a class="item active">Fasilitas</a>
+  <a class="item">Anggota</a>
+</div>
+<div id="content"></div>
+
+<script>
+  $(document).ready(function() {
+    $('#content').load('facility.html');
+
+    $('#tab a').click(function(e) {
+      $('#tab a.active').removeClass('active');
+      $(this).addClass('active');
+      if ($('#tab a.active').text() === 'Fasilitas') {
+          $('#content').load('facility.html');
+      } else {
+          $('#content').load('member.html');
+      }
+    });
+
+    function getQueryStringParams(sParam) {
+      var sPageURL = window.location.search.substring(1);
+      var sURLVariables = sPageURL.split('&');
+      for (var i = 0; i < sURLVariables.length; i++) {
+        var sParameterName = sURLVariables[i].split('=');
+        if (sParameterName[0] == sParam) {
+          return sParameterName[1];
+        }
+      }
+    }
+
+    var buildingId = getQueryStringParams('building');
+    if (!buildingId) buildingId = 1;
+    $.getJSON('kos-' + buildingId + '.json', function(result) {
+      var facility = new Vue({
+        el: '#facilities',
+        data: {
+          facilities: result.facilities
+        }
+      });
+    });
+
+    $('.message .close').on('click', function() {
+      $(this).closest('.message').transition('fade');
+    });
+  });
+</script>

@@ -1,0 +1,95 @@
+<h3 class="ui header">Daftar</h3>
+<form class="ui form">
+  <div class="ui error small message"></div>
+  <div class="field">
+    <div class="ui left icon input">
+      <i class="user icon"></i>
+      <input type="text" name="name" placeholder="Nama">
+    </div>
+  </div>
+  <div class="field">
+    <div class="ui left icon input">
+      <i class="call icon"></i>
+      <input type="text" name="phone" placeholder="Nomor HP">
+    </div>
+  </div>
+  <div class="field">
+    <div class="ui left icon input">
+      <i class="mail icon"></i>
+      <input type="text" name="email" placeholder="Email">
+    </div>
+  </div>
+  <div class="field">
+    <div class="ui left icon input">
+      <i class="lock icon"></i>
+      <input type="password" name="password" placeholder="Password">
+    </div>
+  </div>
+  <div class="ui fluid large teal submit button">Daftar</div>
+</form>
+<div class="ui small message">
+  Sudah punya akun? <a class="btn-login" href="#">Masuk</a>
+</div>
+
+<script>
+  $('.ui.form').form({
+    fields: {
+      name: {
+        identifier  : 'name',
+        rules: [
+          {
+            type   : 'empty',
+            prompt : 'Nama tidak boleh kosong'
+          }
+        ]
+      },
+      phone: {
+        identifier  : 'phone',
+        rules: [
+          {
+            type   : 'empty',
+            prompt : 'No HP tidak boleh kosong'
+          },
+          {
+            type   : 'integer',
+            prompt : 'No HP tidak valid'
+          }
+        ]
+      },
+      email: {
+        identifier  : 'email',
+        rules: [
+          {
+            type   : 'empty',
+            prompt : 'Email tidak boleh kosong'
+          },
+          {
+            type   : 'email',
+            prompt : 'Email tidak valid'
+          }
+        ]
+      },
+      password: {
+        identifier  : 'password',
+        rules: [
+          {
+            type   : 'empty',
+            prompt : 'Password tidak boleh kosong'
+          },
+          {
+            type   : 'length[6]',
+            prompt : 'Password setidaknya 6 karakter'
+          }
+        ]
+      }
+    }
+  });
+
+  $(document).ready(function() {
+    $(".btn-login").click(function() {
+      $('.form-layout').load('Login.form.html', function(response, status) {
+        console.log(status);
+      });
+    });
+  });
+</script>

@@ -1,0 +1,57 @@
+<h3 class="ui header">Masuk</h3>
+<form class="ui form" action="dashboard.html" method="post">
+  <div class="ui error message"></div>
+  <div class="field">
+    <div class="ui left icon input">
+      <i class="user icon"></i>
+      <input type="text" name="email" placeholder="E-mail atau nomor HP">
+    </div>
+  </div>
+  <div class="field">
+    <div class="ui left icon input">
+      <i class="lock icon"></i>
+      <input type="password" name="password" placeholder="Password">
+    </div>
+  </div>
+  <div class="ui fluid large teal submit button">Masuk</div>
+</form>
+<div class="ui small message">
+  Tidak punya akun? <a class="btn-register" href="#">Daftar</a>
+</div>
+
+<script>
+  $(document).ready(function() {
+    $('.ui.form').form({
+      fields: {
+        name: {
+          identifier  : 'email',
+          rules: [
+            {
+              type   : 'empty',
+              prompt : 'Email atau nomor HP tidak boleh kosong'
+            }
+          ]
+        },
+        phone: {
+          identifier  : 'password',
+          rules: [
+            {
+              type   : 'empty',
+              prompt : 'Password tidak boleh kosong'
+            }
+          ]
+        }
+      }
+    });
+
+    $(".btn-register").click(function() {
+      $('.form-layout').load('register.form.html', function(response, status) {
+      });
+    });
+    //
+    // $(".submit").click(function() {
+    //   $('.form-layout').load('register.form.html', function(response, status) {
+    //   });
+    // });
+  });
+</script>

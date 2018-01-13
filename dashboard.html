@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Dashbor - Kosman</title>
+  <link rel="stylesheet" href="assets/css/semantic.css">
+  <link rel="stylesheet" href="assets/css/message.css">
+  <script src="assets/js/jquery-3.2.1.min.js"></script>
+  <script src="assets/js/semantic.min.js"></script>
+  <script src="assets/js/form.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+  <style type="text/css">
+    body {
+      background-image: url("assets/images/bg3.jpg");
+      background-color: #DADADA;
+      background-repeat: no-repeat;
+      background-size: 100%;
+    }
+    body > .grid {
+      height: 100%;
+    }
+    .column {
+      max-width: 800px;
+      max-height: 500px
+    }
+    #main {
+      min-height: 400px;
+    }
+    #facilities, #members {
+      overflow-y: scroll;
+      overflow-x: hidden;
+      max-height: 300px;
+    }
+  </style>
+  <script>
+  $(document).ready(function() {
+    var buildingList = [
+      {
+        name: 'Kos Nakula',
+        id: 1
+      },
+      {
+        name: 'Kos Sadewa',
+        id: 2
+      },
+      {
+        name: 'Kos Tembalang',
+        id: 3
+      },
+      {
+        name: 'Kos Surabaya',
+        id: 4
+      }
+    ];
+
+    var app4 = new Vue({
+      el: '#buildings',
+      data: {
+        buildings: buildingList
+      }
+    });
+
+    $('#main').load('building.content.html');
+
+    var buildingId = getQueryStringParams('building');
+    if (buildingId) {
+      $('#buildings a:nth-of-type(' + buildingId + ')').addClass('active');
+    } else {
+      $('#buildings a:nth-of-type(1)').addClass('active');
+    }
+
+    $('#buildings a').click(function(e) {
+      $('#buildings a.active').removeClass('active');
+      $(this).addClass('active');
+      $.each(buildingList, function(i, v) {
+        if (v.name === $('#buildings a.active').text()) {
+          window.history.pushState("object or string", "Title", "?building=" + buildingList[i].id);
+          $('#content').load('facility.html');
+        }
+      });
+    });
+
+    $('.button').click(function(e) {
+      $('#main').load('building.form.html');
+    });
+
+    function getQueryStringParams(sParam) {
+      var sPageURL = window.location.search.substring(1);
+      var sURLVariables = sPageURL.split('&');
+      for (var i = 0; i < sURLVariables.length; i++) {
+        var sParameterName = sURLVariables[i].split('=');
+        if (sParameterName[0] == sParam) {
+          return sParameterName[1];
+        }
+      }
+    }
+  });
+  </script>
+</head>
+<body>
+  <div class="ui middle aligned centered grid">
+    <div class="column">
+      <div class="ui stacked segment">
+        <h2 class="ui image header">
+          <img src="assets/images/K.png" class="image">
+          <div class="content">Kosman - Manajemen Kos</div>
+        </h2>
+        <div class="ui stakcable grid">
+          <div class="four wide column">
+            <div id="buildings" class="ui vertical fluid pointing attached menu">
+              <div class="header item">Daftar Bangunan</div>
+              <a v-for="building in buildings" class="item">{{ building.name }}</a>
+              <div class="link item">
+                <div class="ui small fluid button add-building">Tambah</div>
+              </div>
+            </div>
+          </div>
+          <div class="twelve wide stretched column">
+            <div id="main" class="ui segment"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
